@@ -3,6 +3,7 @@ package com.example.materialdrawertest1304;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SlideShowFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +83,37 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
+            CameraFragment cameraFragment = new CameraFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.constraintlayout_for_fragment,
+                    cameraFragment,
+                    cameraFragment.getTag()
+            ).commit();
+
+
 
         } else if (id == R.id.nav_gallery) {
+            GalleryFragment galleryFragment = GalleryFragment.newInstance("Some1","Some2");
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.constraintlayout_for_fragment,
+                    galleryFragment,
+                    galleryFragment.getTag()
+            ).commit();
+
 
         } else if (id == R.id.nav_slideshow) {
+
+            SlideShowFragment slideShowFragment = SlideShowFragment.newInstance(5);
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.constraintlayout_for_fragment,
+                    slideShowFragment,
+                    slideShowFragment.getTag()
+            ).commit();
+
 
         } else if (id == R.id.nav_manage) {
 
@@ -99,5 +126,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(String data) {
+        Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
     }
 }
