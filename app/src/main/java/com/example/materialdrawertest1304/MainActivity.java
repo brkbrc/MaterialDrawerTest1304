@@ -116,6 +116,17 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_manage) {
+            DoktorFragment doktorFragment = new DoktorFragment();
+
+
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.constraintlayout_for_fragment,
+                    doktorFragment,
+                    doktorFragment.getTag()
+            ).commit();
+
+
 
         } else if (id == R.id.nav_share) {
 
