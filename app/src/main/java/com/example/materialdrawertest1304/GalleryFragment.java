@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 
 /**
@@ -15,6 +17,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class GalleryFragment extends Fragment {
+
+    AutoCompleteTextView textView;
+    final String[] countries = new String[] {
+            "Albania", "Algeria", "American Samoa", "Andorra",
+            "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium"
+    };
 
     private final String TAG = this.getClass().getSimpleName();
     // TODO: Rename parameter arguments, choose names that match
@@ -61,6 +69,15 @@ public class GalleryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view =  inflater.inflate(R.layout.fragment_gallery, container, false);
+        textView = (AutoCompleteTextView) view.findViewById(R.id.gallery_autocomplete);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, countries);
+        textView.setAdapter(adapter);
+        textView.setThreshold(1);
+
+
 
         Log.d(TAG, mParam1);
         Log.d(TAG, mParam2);
