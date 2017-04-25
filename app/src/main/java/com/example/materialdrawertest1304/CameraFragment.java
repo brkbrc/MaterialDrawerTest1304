@@ -31,7 +31,7 @@ public class CameraFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_camera, container, false);
         textView = (AutoCompleteTextView) view.findViewById(R.id.country_autocomplete);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_list_item_1, countries);
+                        android.R.layout.simple_list_item_multiple_choice, countries);
         textView.setAdapter(adapter);
         textView.setThreshold(1);
         return view;

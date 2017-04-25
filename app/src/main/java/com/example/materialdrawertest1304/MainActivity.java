@@ -48,16 +48,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        new Handler().postDelayed(new Runnable(){
-            @Override
-            public void run(){
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(homeIntent);
-                finish();
 
-            }
-
-        }, SPLASH_TIME_OUT);
     }
 
     @Override
@@ -99,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            //Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
             CameraFragment cameraFragment = new CameraFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
