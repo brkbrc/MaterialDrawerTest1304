@@ -17,9 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.materialdrawertest1304.R;
-import com.example.materialdrawertest1304.SignupActivity;
-
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -47,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        _image.setOnTouchListener(onTouchListener());
+        _image.setOnTouchListener(onTouchListenerLogo());
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -70,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private View.OnTouchListener onTouchListener(){
+    private View.OnTouchListener onTouchListenerLogo(){
         return new View.OnTouchListener(){
 
             @SuppressLint("ClickableViewAccessibility")
@@ -110,10 +107,12 @@ public class LoginActivity extends AppCompatActivity {
     public void login() {
         Log.d(TAG, "Login");
 
+        /*
         if (!validate()) {
             onLoginFailed();
             return;
         }
+        */
 
         _loginButton.setEnabled(false);
 
@@ -126,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        // TODO: Implement your own authentication logic here.
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -169,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Login fehlgeschlagen", Toast.LENGTH_LONG).show();
 
         _loginButton.setEnabled(true);
     }

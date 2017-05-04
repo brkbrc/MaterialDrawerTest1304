@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Kontaktieren sie den Arzt", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -46,6 +46,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        DoktorFragment doktorFragment = new DoktorFragment();
+
+
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(
+                R.id.constraintlayout_for_fragment,
+                doktorFragment,
+                doktorFragment.getTag()
+        ).commit();
 
 
 
