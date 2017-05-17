@@ -1,8 +1,6 @@
 package com.example.materialdrawertest1304;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SlideShowFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ViertesFragment.OnFragmentInteractionListener {
 
     private static int SPLASH_TIME_OUT = 4000;
 
@@ -99,14 +97,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
-            CameraFragment cameraFragment = new CameraFragment();
+        if (id == R.id.nav_list) {
+            Toast.makeText(this, "Liste geöffnet", Toast.LENGTH_SHORT).show();
+            ListFragment listFragment = new ListFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
                     R.id.constraintlayout_for_fragment,
-                    cameraFragment,
-                    cameraFragment.getTag()
+                    listFragment,
+                    listFragment.getTag()
             ).commit();
 
 
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-            SlideShowFragment slideShowFragment = SlideShowFragment.newInstance(5);
+            ViertesFragment slideShowFragment = ViertesFragment.newInstance(5);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
                     R.id.constraintlayout_for_fragment,

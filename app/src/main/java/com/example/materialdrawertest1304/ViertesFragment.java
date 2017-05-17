@@ -1,7 +1,6 @@
 package com.example.materialdrawertest1304;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,12 +11,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SlideShowFragment.OnFragmentInteractionListener} interface
+ * {@link ViertesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SlideShowFragment#newInstance} factory method to
+ * Use the {@link ViertesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SlideShowFragment extends Fragment {
+public class ViertesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,13 +28,13 @@ public class SlideShowFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SlideShowFragment() {
+    public ViertesFragment() {
         // Required empty public constructor
     }
 
 
-    public static SlideShowFragment newInstance(int param1) {
-        SlideShowFragment fragment = new SlideShowFragment();
+    public static ViertesFragment newInstance(int param1) {
+        ViertesFragment fragment = new ViertesFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
 

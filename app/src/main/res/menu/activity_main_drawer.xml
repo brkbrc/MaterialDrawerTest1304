@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Doktor"/>
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:id="@+id/nav_list"
+            android:icon="@drawable/ic_menu_list"
+            android:title="Liste"/>
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"

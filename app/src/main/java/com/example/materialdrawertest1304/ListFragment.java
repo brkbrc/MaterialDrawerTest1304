@@ -15,26 +15,36 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment {
-    AutoCompleteTextView textView;
-    final String[] countries = new String[] {
-            "Albania", "Algeria", "American Samoa", "Andorra",
-            "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium"
-    };
+public class ListFragment extends Fragment {
 
-    public CameraFragment() {
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+}
+
+
+
+
+
+
+
+
+/*    AutoCompleteTextView textView;
+final String[] countries = new String[] {
+        "Albania", "Algeria", "American Samoa", "Andorra",
+        "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium"
+        };
+
+public ListFragment() {
+        }
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_camera, container, false);
         textView = (AutoCompleteTextView) view.findViewById(R.id.country_autocomplete);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_list_item_multiple_choice, countries);
+        android.R.layout.simple_list_item_multiple_choice, countries);
         textView.setAdapter(adapter);
         textView.setThreshold(1);
         return view;
-    }
-
-}
+        }
+        */
