@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
-            GalleryFragment galleryFragment = GalleryFragment.newInstance("Some1","Some2");
+            CommunicationFragment communicationFragment = new CommunicationFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
                     R.id.constraintlayout_for_fragment,
-                    galleryFragment,
-                    galleryFragment.getTag()
+                    communicationFragment,
+                    communicationFragment.getTag()
             ).commit();
 
 

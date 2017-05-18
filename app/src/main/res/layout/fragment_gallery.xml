@@ -2,33 +2,38 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.materialdrawertest1304.GalleryFragment">
+             tools:context="com.example.materialdrawertest1304.CommunicationFragment">
 
 
-    <TextClock
-        android:id="@+id/textClock"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="165dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="17dp"
+        android:text="Button"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"/>
 
-    <Chronometer
-        android:id="@+id/chronometer2"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textClock"
-        android:layout_marginEnd="38dp"
-        android:layout_marginTop="208dp"
-        android:layout_toStartOf="@+id/textClock"/>
+        android:layout_below="@+id/button2"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="57dp"
+        android:layout_toEndOf="@+id/gallery_autocomplete"
+        android:text="TextView"/>
 
-
-    <AutoCompleteTextView
-        android:id="@+id/gallery_autocomplete"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_above="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginStart="13dp"/>
 
 
 </RelativeLayout>
