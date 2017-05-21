@@ -51,14 +51,15 @@ public class ListFragment extends Fragment {
         //recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         //recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView.hasFixedSize();
 
 
         adapter=new Row_List_View_Adapter(data, getActivity() );
 
+
+        recyclerView.setAdapter(adapter);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
 
 
         return rootView;
