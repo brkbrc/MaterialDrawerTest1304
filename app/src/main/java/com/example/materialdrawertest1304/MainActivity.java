@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        DoktorFragment doktorFragment = new DoktorFragment();
+        DoctorFragment doctorFragment = new DoctorFragment("Doktor Arschloch");
 
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(
                 R.id.constraintlayout_for_fragment,
-                doktorFragment,
-                doktorFragment.getTag()
+                doctorFragment,
+                doctorFragment.getTag()
         ).commit();
 
 
@@ -131,14 +131,14 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_manage) {
-            DoktorFragment doktorFragment = new DoktorFragment();
+            DoctorFragment doctorFragment = new DoctorFragment("Dr. Burak");
 
 
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
                     R.id.constraintlayout_for_fragment,
-                    doktorFragment,
-                    doktorFragment.getTag()
+                    doctorFragment,
+                    doctorFragment.getTag()
             ).commit();
 
 

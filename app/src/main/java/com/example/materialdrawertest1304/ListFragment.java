@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import SupportClasses.Data;
-import SupportClasses.Row_List_View_Adapter;
+import SupportClasses.ListFragment_Adapter;
 
 
 /**
@@ -27,7 +26,7 @@ public class ListFragment extends Fragment {
 
 
     RecyclerView recyclerView;
-    private Row_List_View_Adapter adapter;
+    private ListFragment_Adapter adapter;
 
     public static ListFragment newInstance(){
         ListFragment fragment = new ListFragment();
@@ -51,7 +50,7 @@ public class ListFragment extends Fragment {
        // recyclerView.hasFixedSize();
 
 
-        adapter=new Row_List_View_Adapter(data, getActivity() );
+        adapter=new ListFragment_Adapter(data, getActivity() );
 
 
         recyclerView.setAdapter(adapter);
@@ -92,18 +91,7 @@ public class ListFragment extends Fragment {
         return new BitmapDrawable(getResources(), bitmapResized);
     }
 
-    public  void displayView() {
-        Fragment fragment = null;
-        fragment =   new DoktorFragment();
 
-        if (fragment !=null){
-            FragmentManager fragmentManager=getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.constraintlayout_for_fragment, fragment)
-                    .addToBackStack(null).commit();
-
-        }
-
-    }
 
 
 
