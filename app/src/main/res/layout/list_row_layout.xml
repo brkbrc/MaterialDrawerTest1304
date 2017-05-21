@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
-    <android.support.v7.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 
     <android.support.v7.widget.CardView
@@ -17,14 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         app:cardCornerRadius="@dimen/activity_vertical_margin"
-        app:cardElevation="@dimen/activity_vertical_margin">
+        app:cardElevation="@dimen/activity_vertical_margin"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
-
-
 
             <ImageView
                 android:id="@+id/imageView"
@@ -56,4 +51,4 @@
     </android.support.v7.widget.CardView>
 
 
-</RelativeLayout>
+</LinearLayout>

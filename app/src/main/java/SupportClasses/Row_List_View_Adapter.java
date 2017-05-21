@@ -1,6 +1,8 @@
 package SupportClasses;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +10,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.example.materialdrawertest1304.DoktorFragment;
+import com.example.materialdrawertest1304.ListFragment;
+import com.example.materialdrawertest1304.LoginActivity;
 import com.example.materialdrawertest1304.R;
+import com.example.materialdrawertest1304.SignupActivity;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,11 +33,29 @@ public class Row_List_View_Adapter extends RecyclerView.Adapter<View_Holder> {
         this.context = context;
     }
 
+
+
+
     @Override
     public View_Holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_layout, parent, false);
+        final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_layout, parent, false);
         View_Holder holder = new View_Holder(v);
+        holder.cv.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+                //v.getContext().startActivity(new Intent(v.getContext(),LoginActivity.class));
+                //context.startActivity(new Intent(v.getContext(),LoginActivity.class));
+
+
+
+
+            }
+
+        });
+
         return holder;
     }
 
@@ -41,7 +65,7 @@ public class Row_List_View_Adapter extends RecyclerView.Adapter<View_Holder> {
         holder.description.setText(list.get(position).description);
         holder.imageView.setImageResource(list.get(position).imageId);
 
-        animate(holder);
+        //animate(holder);
     }
 
     @Override
