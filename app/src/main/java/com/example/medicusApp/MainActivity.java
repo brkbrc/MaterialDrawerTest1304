@@ -1,25 +1,42 @@
 package com.example.medicusApp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 import Fragments.CommunicationFragment;
 import Fragments.ListFragment;
 import Fragments.StartFragment;
 import Fragments.ViertesFragment;
+import SupportClasses.Data;
+
+import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ViertesFragment.OnFragmentInteractionListener, StartFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ViertesFragment.OnFragmentInteractionListener, StartFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, SortedListAdapter.Callback {
 
     private static int SPLASH_TIME_OUT = 4000;
+
+//    private static final Comparator<Data> ALPHABETICAL_COMPARATOR = new Comparator<Data>() {
+//        @Override
+//        public int compare(Data a, Data b) {
+//            return a.getText().compareTo(b.getText());
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +98,21 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+
         return true;
     }
 
@@ -96,7 +124,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
             return true;
         }
 
@@ -186,6 +214,48 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
+    @Override
+    public boolean onQueryTextChange(String query) {
 
+        FragmentManager fm = getSupportFragmentManager();
+
+        ListFragment fragment = (ListFragment)fm.findFragmentById(R.id.constraintlayout_for_fragment);
+        //List<Data>=
+
+        final List<Data> filteredModelList = filter(fragment.data, query);
+        //fragment.data
+        fragment.adapter.replaceAll(filteredModelList);
+        //fragment.adapter.notifyDataSetChanged();
+        fragment.recyclerView.scrollToPosition(0);
+
+        return true;
+    }
+
+    private static List<Data> filter(List<Data> models, String query) {
+        final String lowerCaseQuery = query.toLowerCase();
+
+        final List<Data> filteredModelList = new ArrayList<>();
+        for (Data model : models) {
+            final String text = model.getText().toLowerCase();
+            if (text.contains(lowerCaseQuery)) {
+                filteredModelList.add(model);
+            }
+        }
+        return filteredModelList;
+    }
+
+    @Override
+    public void onEditStarted() {
+
+    }
+
+    @Override
+    public void onEditFinished() {
+
+    }
 }
