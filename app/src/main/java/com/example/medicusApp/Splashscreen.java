@@ -1,4 +1,4 @@
-package Main;
+package com.example.medicusApp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.example.MedicusApp.R;
 
 public class Splashscreen extends Activity {
 

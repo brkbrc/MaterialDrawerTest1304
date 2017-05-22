@@ -1,4 +1,4 @@
-package Main;
+package com.example.medicusApp;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -10,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.example.MedicusApp.R;
 
 import Fragments.CommunicationFragment;
 import Fragments.ListFragment;
@@ -65,10 +63,21 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        StartFragment startFragment = new StartFragment();
+        FragmentManager manager = this.getSupportFragmentManager();
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
+//            manager.beginTransaction()
+//                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slide_in_left)
+//                    .replace(R.id.constraintlayout_for_fragment, startFragment)
+//                    .commit();
+
+
+
         }
     }
 
@@ -104,33 +113,42 @@ public class MainActivity extends AppCompatActivity
             //Toast.makeText(this, "Liste geöffnet", Toast.LENGTH_SHORT).show();
             ListFragment listFragment = new ListFragment();
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(
+            manager.beginTransaction()
+                    .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                    .replace(
                     R.id.constraintlayout_for_fragment,
                     listFragment,
-                    listFragment.getTag()
-            ).commit();
+                    listFragment.getTag())
+                    .addToBackStack(null)
+                    .commit();
 
 
 
         } else if (id == R.id.nav_communication) {
             CommunicationFragment communicationFragment = new CommunicationFragment();
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(
+            manager.beginTransaction()
+                    .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                    .replace(
                     R.id.constraintlayout_for_fragment,
                     communicationFragment,
-                    communicationFragment.getTag()
-            ).commit();
+                    communicationFragment.getTag())
+                    .addToBackStack(null)
+                    .commit();
 
 
         } else if (id == R.id.nav_Viertes) {
 
             ViertesFragment slideShowFragment = ViertesFragment.newInstance(5);
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(
+            manager.beginTransaction()
+                    .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                    .replace(
                     R.id.constraintlayout_for_fragment,
                     slideShowFragment,
-                    slideShowFragment.getTag()
-            ).commit();
+                    slideShowFragment.getTag())
+                    .addToBackStack(null)
+                    .commit();
 
 
         } else if (id == R.id.nav_start) {
@@ -138,11 +156,14 @@ public class MainActivity extends AppCompatActivity
             StartFragment startFragment = new StartFragment();
             //ViertesFragment viertesFragment = new ViertesFragment();
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(
+            manager.beginTransaction()
+                    .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                    .replace(
                     R.id.constraintlayout_for_fragment,
                     startFragment,
-                    startFragment.getTag()
-            ).commit();
+                    startFragment.getTag())
+                    .addToBackStack(null)
+                    .commit();
 
 
 

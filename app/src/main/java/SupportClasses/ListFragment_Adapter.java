@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import Fragments.DoctorFragment;
-import com.example.MedicusApp.R;
+import com.example.medicusApp.R;
 
 import java.util.Collections;
 import java.util.List;
@@ -65,11 +65,20 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
 
+
                 //TODO
                 //Doktorfragment mit Constructor versehen damit die richtigen Daten erhoben werden
                 DoctorFragment myFragment = new DoctorFragment((list.get(position).title));
+                activity.getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                        .replace(R.id.constraintlayout_for_fragment, myFragment)
+                        .addToBackStack(null)
+                        .commit();
 
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment, myFragment).addToBackStack(null).commit();
+               // ft.replace(R.id.constraintlayout_for_fragment, myFragment, "detailFragment");
+
+
+                //activity.getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment, myFragment).addToBackStack(null).commit();
             }
 
         });

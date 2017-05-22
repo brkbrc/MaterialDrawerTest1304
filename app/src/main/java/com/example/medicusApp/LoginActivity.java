@@ -1,4 +1,4 @@
-package Main;
+package com.example.medicusApp;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.MedicusApp.R;
 
 import butterknife.ButterKnife;
 import butterknife.Bind;

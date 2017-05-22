@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.MedicusApp.R;
+import com.example.medicusApp.R;
 
 import SupportClasses.JSONResponse;
 import SupportClasses.JSONTask;
