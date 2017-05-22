@@ -1,7 +1,6 @@
-package com.example.MedicusApp.Activities;
+package Main;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,7 +14,6 @@ import android.view.MenuItem;
 import com.example.MedicusApp.R;
 
 import Fragments.CommunicationFragment;
-import Fragments.DoctorFragment;
 import Fragments.ListFragment;
 import Fragments.StartFragment;
 import Fragments.ViertesFragment;

@@ -35,7 +35,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
     @Override
     public View_Holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_layout, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_list_cardview_layout, parent, false);
         View_Holder holder = new View_Holder(v);
 //        holder.cv.setOnClickListener(new View.OnClickListener(){
 //            @Override

@@ -1,4 +1,4 @@
-package com.example.MedicusApp.Activities;
+package Main;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;

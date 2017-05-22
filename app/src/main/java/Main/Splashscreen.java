@@ -1,4 +1,4 @@
-package com.example.MedicusApp.Activities;
+package Main;
 
 import android.app.Activity;
 import android.content.Intent;
