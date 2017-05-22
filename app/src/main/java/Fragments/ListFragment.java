@@ -1,16 +1,19 @@
-package com.example.materialdrawertest1304;
+package Fragments;
 
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.MedicusApp.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +61,18 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
 
+
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //  Snackbar.make(view, "Etwas hinzugefügt", Snackbar.LENGTH_LONG)
+              //          .setAction("Action", null).show();
+                adapter.insert(adapter.getItemCount(), new Data("Neuer Arzt", "Seine Beschreibung", R.drawable.pic1_small));
+
+            }
+        });
+
         return rootView;
 
 
@@ -68,19 +83,22 @@ public class ListFragment extends Fragment {
     private List<Data> fill_with_data() {
         List<Data> data = new ArrayList<>();
 
-        data.add(new Data("Batman vs Superman", "Following the destruction of Metropolis, Batman embarks on a personal vendetta against Superman ", R.drawable.ic_action_movie));
-        data.add(new Data("X-Men: Apocalypse", "X-Men: Apocalypse is an upcoming American superhero film based on the X-Men characters that appear in Marvel Comics ", R.drawable.ic_action_movie));
-        data.add(new Data("Captain America: Civil War", "A feud between Captain America and Iron Man leaves the Avengers in turmoil.  ", R.drawable.ic_action_movie));
-        data.add(new Data("Kung Fu Panda 3", "After reuniting with his long-lost father, Po  must train a village of pandas", R.drawable.ic_action_movie));
-        data.add(new Data("Warcraft", "Fleeing their dying home to colonize another, fearsome orc warriors invade the peaceful realm of Azeroth. ", R.drawable.ic_action_movie));
-        data.add(new Data("Alice in Wonderland", "Alice in Wonderland: Through the Looking Glass ", R.drawable.ic_action_movie));
 
-        data.add(new Data("Batman vs Superman", "Following the destruction of Metropolis, Batman embarks on a personal vendetta against Superman ", R.drawable.ic_action_movie));
-        data.add(new Data("X-Men: Apocalypse", "X-Men: Apocalypse is an upcoming American superhero film based on the X-Men characters that appear in Marvel Comics ", R.drawable.ic_action_movie));
-        data.add(new Data("Captain America: Civil War", "A feud between Captain America and Iron Man leaves the Avengers in turmoil.  ", R.drawable.ic_action_movie));
-        data.add(new Data("Kung Fu Panda 3", "After reuniting with his long-lost father, Po  must train a village of pandas", R.drawable.ic_action_movie));
-        data.add(new Data("Warcraft", "Fleeing their dying home to colonize another, fearsome orc warriors invade the peaceful realm of Azeroth. ", R.drawable.ic_action_movie));
-        data.add(new Data("Alice in Wonderland", "Alice in Wonderland: Through the Looking Glass ", R.drawable.ic_action_movie));
+
+
+
+        data.add(new Data("Dr. Achim", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Müller", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Dietrich", "Dr. Dietrich ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Burkhardt", "Dr. Burkhardt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Schmidt", "Dr. Schmidt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Achmed", "Dr. Achmed ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Ratte", "Dr. Ratte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Schmerz", "Dr. Schmerz ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Anabolika", "Dr. Anabolika ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Fake", "Dr. Fake ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Nein", "Dr. Nein ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data("Dr. Bitte", "Dr. Bitte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
 
         return data;
     }

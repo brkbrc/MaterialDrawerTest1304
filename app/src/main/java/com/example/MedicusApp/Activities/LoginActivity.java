@@ -1,4 +1,4 @@
-package com.example.materialdrawertest1304;
+package com.example.MedicusApp.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.MedicusApp.R;
 
 import butterknife.ButterKnife;
 import butterknife.Bind;

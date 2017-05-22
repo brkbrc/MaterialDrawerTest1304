@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.example.materialdrawertest1304.DoctorFragment;
-import com.example.materialdrawertest1304.R;
+import Fragments.DoctorFragment;
+import com.example.MedicusApp.R;
 
 import java.util.Collections;
 import java.util.List;
@@ -55,6 +55,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         holder.title.setText(list.get(position).title);
         holder.description.setText(list.get(position).description);
         holder.imageView.setImageResource(list.get(position).imageId);
+
         holder.cv.setOnClickListener(new View.OnClickListener(){
 
             @Override

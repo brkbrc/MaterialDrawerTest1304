@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.materialdrawertest1304.R;
+import com.example.MedicusApp.R;
 
 /**
  * Created by commander on 17.05.2017.
@@ -23,7 +23,16 @@ public class View_Holder extends RecyclerView.ViewHolder {
         cv = (CardView) itemView.findViewById(R.id.cardView);
         title = (TextView) itemView.findViewById(R.id.title);
         description = (TextView) itemView.findViewById(R.id.description);
+
+
+
+
+
         imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        imageView.setMaxHeight(5);
+        imageView.setMaxWidth(5);
+
+
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.materialdrawertest1304;
+package Fragments;
 
 
 import android.os.Bundle;
@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.MedicusApp.R;
 
 import butterknife.Bind;
 
@@ -17,7 +18,7 @@ import butterknife.Bind;
  */
 public class DoctorFragment extends Fragment {
 
-    @Bind(R.id.user_profile_name) TextView doctor_name_textview;
+   // @Bind(R.id.user_profile_name) TextView doctor_name_textview;
 
     String doctor_name;
 

@@ -1,4 +1,4 @@
-package com.example.materialdrawertest1304;
+package Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,37 +7,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.MedicusApp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ViertesFragment.OnFragmentInteractionListener} interface
+ * {@link StartFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ViertesFragment#newInstance} factory method to
+ * Use the {@link StartFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViertesFragment extends Fragment {
+public class StartFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private int mParam1;
+    private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public ViertesFragment() {
+    public StartFragment() {
         // Required empty public constructor
     }
 
-
-    public static ViertesFragment newInstance(int param1) {
-        ViertesFragment fragment = new ViertesFragment();
+    public static StartFragment newInstance(String param1, String param2) {
+        StartFragment fragment = new StartFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, param1);
-
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -46,19 +47,17 @@ public class ViertesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getInt(ARG_PARAM1);
-
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Integer total = mParam1*5;
-        onButtonPressed(total.toString());
-
-
-        return inflater.inflate(R.layout.fragment_slide_show, container, false);
+        // Inflate the layout for this fragment
+        onButtonPressed("Start Activity ausgeführt");
+        return inflater.inflate(R.layout.fragment_start, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
