@@ -6,13 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
-    android:id="@+id/doctor_profile"
-    >
+    android:id="@+id/doctor_profile">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
             android:id="@+id/profile_doctor"
@@ -22,8 +20,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             card_view:cardCornerRadius="5dp"
-            card_view:cardElevation="5dp"
-            >
+            card_view:cardElevation="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -34,8 +31,7 @@
                     android:id="@+id/profile_doctor_image"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/pic1"
-                    />
+                    android:src="@drawable/pic1" />
 
                 <TextView
                     android:id="@+id/profile_doctor_name"
@@ -46,8 +42,7 @@
                     android:text="Doktor"
                     android:textColor="@color/black"
                     android:textSize="22sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/profile_doctor_speciality"
@@ -59,8 +54,7 @@
                     android:text="Fachrichtung"
                     android:textColor="@color/aluminum"
                     android:textSize="15sp"
-                    android:textStyle="italic"
-                    />
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/profile_doctor_address"
@@ -72,8 +66,7 @@
                     android:layout_toEndOf="@+id/profile_doctor_image"
                     android:text="Straße Hausnr"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/profile_doctor_zipcode"
@@ -85,34 +78,35 @@
                     android:layout_toEndOf="@+id/profile_doctor_image"
                     android:text="PLZ Ort"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/profile_doctor_phone"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/profile_doctor_zipcode"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_toEndOf="@+id/profile_doctor_image"
-                    android:text="Telefonnummer"
+                    android:text="Tel.: 01234/56789"
+                    android:autoLink="phone"
+                    android:textColorLink="@color/aluminum"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/profile_doctor_email"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/profile_doctor_phone"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="0dp"
                     android:layout_toEndOf="@+id/profile_doctor_image"
-                    android:text="E-Mail"
+                    android:text="E-Mail: emailtest@test.de"
+                    android:textColorLink="@color/aluminum"
+                    android:autoLink="email"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    />
+                    android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/profile_doctor_checkin"
@@ -149,8 +143,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             card_view:cardCornerRadius="5dp"
-            card_view:cardElevation="5dp"
-            >
+            card_view:cardElevation="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -255,14 +248,12 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             card_view:cardCornerRadius="5dp"
-            card_view:cardElevation="5dp"
-            >
+            card_view:cardElevation="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                >
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/profile_location_caption"
@@ -270,8 +261,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Standort"
-                    />
+                    android:text="Standort" />
 
                 <fragment
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -284,8 +274,7 @@
                     android:layout_marginTop="5dp"
                     map:cameraZoom="150"
                     map:mapType="normal"
-                    map:liteMode="true"
-                    />
+                    map:liteMode="true" />
 
             </RelativeLayout>
 
@@ -300,14 +289,12 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             card_view:cardCornerRadius="5dp"
-            card_view:cardElevation="5dp"
-            >
+            card_view:cardElevation="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                >
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/profile_services_caption"
@@ -315,8 +302,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Zusatzleistungen"
-                    />
+                    android:text="Zusatzleistungen" />
 
             </RelativeLayout>
 
@@ -332,14 +318,12 @@
             android:layout_marginTop="5dp"
             card_view:cardCornerRadius="5dp"
             card_view:cardElevation="5dp"
-            android:layout_marginBottom="10dp"
-            >
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                >
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/profile_information_caption"
@@ -347,8 +331,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Persönliche Informationen"
-                    />
+                    android:text="Persönliche Informationen" />
 
             </RelativeLayout>
 
