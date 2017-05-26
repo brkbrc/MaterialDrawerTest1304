@@ -25,7 +25,7 @@ import Fragments.ViertesFragment;
 import SupportClasses.Data;
 
 //Buraks Testcomment
-//Jans Testkommentar
+//Jans Testkommentar2
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ViertesFragment.OnFragmentInteractionListener, StartFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, SortedListAdapter.Callback {
