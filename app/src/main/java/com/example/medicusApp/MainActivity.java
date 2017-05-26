@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity
         //Toast.makeText(this, "Callback vom vierten Listener: " + data, Toast.LENGTH_SHORT).show();
     }
 
-
+//trestr
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
