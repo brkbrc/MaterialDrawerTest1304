@@ -30,9 +30,9 @@ public class DoctorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.fragment_doktor,container,false);
-        TextView t = (TextView) view.findViewById(R.id.user_profile_name);
-        t.setText(doctor_name);
+        View view=inflater.inflate(R.layout.fragment_doctor_cardview,container,false);
+        //TextView t = (TextView) view.findViewById(R.id.user_profile_name);
+        //t.setText(doctor_name);
         return view;
 
         //Toast.makeText(view.getContext(), t.getText() +" "+ view.getId(), Toast.LENGTH_SHORT).show();
