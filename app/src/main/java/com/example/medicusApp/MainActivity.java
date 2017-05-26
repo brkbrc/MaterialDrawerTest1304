@@ -26,6 +26,8 @@ import SupportClasses.Data;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
+//Buraks Testcomment
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ViertesFragment.OnFragmentInteractionListener, StartFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, SortedListAdapter.Callback {
 
@@ -213,7 +215,7 @@ public class MainActivity extends AppCompatActivity
         //Toast.makeText(this, "Callback vom vierten Listener: " + data, Toast.LENGTH_SHORT).show();
     }
 
-//trestr
+//trestr //tzest
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
