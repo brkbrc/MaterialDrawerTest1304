@@ -18,8 +18,12 @@ import android.view.ViewGroup;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.medicusApp.R;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -65,16 +69,16 @@ public class ListFragment extends Fragment {
 
         mContext = this.getActivity().getApplicationContext();
 
-        StringRequest stringRequest = new StringRequest(
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                mUrlString,
-                new Response.Listener<String>() {
+                mUrlString,null,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(JSONObject response) {
                         // Do something with response JsonArray
 
-                        String result = response;
-                        Log.d("Volley", response);
+                        String result = response.toString();
+                        Log.d("Volley", result);
                     }
                 },
                 new Response.ErrorListener() {
@@ -87,7 +91,7 @@ public class ListFragment extends Fragment {
         );
 
         // Add StringRequest to the RequestQueue
-        QueueSingleton.getInstance(mContext).addToRequestQueue(stringRequest);
+        QueueSingleton.getInstance(mContext).addToRequestQueue(jsonObjectRequest);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
        // recyclerView.hasFixedSize();
@@ -117,12 +121,10 @@ public class ListFragment extends Fragment {
 
 
 
+
+
     private List<Data> fill_with_data() {
         List<Data> data = new ArrayList<>();
-
-
-
-
 
         data.add(new Data(1,"Dr. Achim", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
         data.add(new Data(2,"Dr. Müller", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
