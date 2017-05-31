@@ -1,6 +1,7 @@
 package Fragments;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -9,10 +10,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.medicusApp.R;
 
 import java.util.ArrayList;
@@ -21,12 +27,16 @@ import java.util.List;
 
 import SupportClasses.Data;
 import SupportClasses.ListFragment_Adapter;
+import SupportClasses.QueueSingleton;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ListFragment extends Fragment {
+
+    String mUrlString = "http://85.214.40.101:8080/MedicusManagementWeb/api/v1/docs/101";
+    Context mContext;
 
 
     public RecyclerView recyclerView;
@@ -52,6 +62,32 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View rootView=inflater.inflate(R.layout.fragment_list, container, false);
+
+        mContext = this.getActivity().getApplicationContext();
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET,
+                mUrlString,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Do something with response JsonArray
+
+                        String result = response;
+                        Log.d("Volley", response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Do something when get error
+
+                    }
+                }
+        );
+
+        // Add StringRequest to the RequestQueue
+        QueueSingleton.getInstance(mContext).addToRequestQueue(stringRequest);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
        // recyclerView.hasFixedSize();

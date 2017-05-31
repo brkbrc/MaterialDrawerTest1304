@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
 
     private static int SPLASH_TIME_OUT = 4000;
 
+
 //    private static final Comparator<Data> ALPHABETICAL_COMPARATOR = new Comparator<Data>() {
 //        @Override
 //        public int compare(Data a, Data b) {
@@ -47,14 +48,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Etwas hinzugefügt", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -74,6 +68,8 @@ public class MainActivity extends AppCompatActivity
                 startFragment,
                 startFragment.getTag()
         ).commit();
+
+
 
 
 
