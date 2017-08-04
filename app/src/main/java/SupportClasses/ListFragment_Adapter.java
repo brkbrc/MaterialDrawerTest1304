@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Created by commander on 17.05.2017.
+ * //resr
  */
 
 public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
@@ -83,6 +84,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         this.context = context;
         this.mComparator = mComparator;
     }
+
 
 
 
@@ -164,6 +166,11 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
     }
 
     public void animate(RecyclerView.ViewHolder viewHolder) {
+        final Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(context, R.anim.anticipate_overshoot_interpolator);
+        viewHolder.itemView.setAnimation(animAnticipateOvershoot);
+    }
+
+    public void erstelleListe(RecyclerView.ViewHolder viewHolder){
         final Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(context, R.anim.anticipate_overshoot_interpolator);
         viewHolder.itemView.setAnimation(animAnticipateOvershoot);
     }
