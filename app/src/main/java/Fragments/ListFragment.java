@@ -62,6 +62,22 @@ public class ListFragment extends Fragment {
         }
     };
 
+    public class WrapContentLinearLayoutManager extends LinearLayoutManager {
+        public WrapContentLinearLayoutManager(Context context, int horizontal, boolean b) {
+            super(context);
+        }
+
+        //... constructor
+        @Override
+        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+            try {
+                super.onLayoutChildren(recycler, state);
+            } catch (IndexOutOfBoundsException e) {
+                Log.e("probe", "meet a IOOBE in RecyclerView");
+            }
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -98,8 +114,20 @@ public class ListFragment extends Fragment {
         adapter=new ListFragment_Adapter(data, getActivity(), ALPHABETICAL_COMPARATOR);
        // new ArrayAdapter<String>(rootView.getContext(),R.layout.support_simple_spinner_dropdown_item,arrayCountry);
         recyclerView.setAdapter(adapter);
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+
+        //final LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
+        //recyclerView.setLayoutManager(layoutManager);
+        /*
+        der inearLayoutManager layoutManager  wird nicht genutzt, da dieser Abstürze vvom Typ:
+         RecyclerView and java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder i
+         verursacht.
+         Dafür wurde ein WrapContentLinearLayout manager definiert, der Exceptions auffängt
+         gez Burak
+         */
+
+        recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
+
+
 
 
         //Das wird ausgeführt wenn der rote Button gedrückt wird:
