@@ -81,8 +81,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
 
     //Constructor
-    public ListFragment_Adapter(List<Data> list, Context context, Comparator<Data> mComparator) {
-        this.list = list;
+    public ListFragment_Adapter( Context context, Comparator<Data> mComparator) {
         this.context = context;
         this.mComparator = mComparator;
     }
@@ -101,10 +100,16 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
     @Override
     public void onBindViewHolder(View_Holder holder, final int position) {
-        
-        holder.title.setText(list.get(position).title);
-        holder.description.setText(list.get(position).description);
-        holder.imageView.setImageResource(list.get(position).imageId);
+
+        final Data dataitem = mSortedList.get(position);
+
+        holder.title.setText(mSortedList.get(position).title);
+        holder.description.setText(mSortedList.get(position).description);
+        holder.imageView.setImageResource(mSortedList.get(position).imageId);
+
+        //holder.title.setText(list.get(position).title);
+        //holder.description.setText(list.get(position).description);
+        //holder.imageView.setImageResource(list.get(position).imageId);
 
         holder.cv.setOnClickListener(new View.OnClickListener(){
 
@@ -135,7 +140,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return mSortedList.size();
     }
 
     @Override
@@ -144,22 +149,18 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
     }
 
     // Insert a new item to the RecyclerView
-    public void insert(int position, Data data) {
-        list.add(position, data);
-        notifyItemInserted(position);
+    public void insert(Data data) {
+        mSortedList.add(data);
+        //notifyItemInserted(position);
     }
 
 
     // Remove a RecyclerView item containing the Data object
     public void remove(Data data) {
-        int position = list.indexOf(data);
-        list.remove(position);
-        notifyItemRemoved(position);
+        mSortedList.remove(data);
     }
 
-    public void addSortedlist(Data data){
-        mSortedList.add(data);
-    }
+
 
     public void replaceAll(List<Data> models) {
         mSortedList.beginBatchedUpdates();

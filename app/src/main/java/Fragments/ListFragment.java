@@ -111,7 +111,7 @@ public class ListFragment extends Fragment {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
        // recyclerView.hasFixedSize();
-        adapter=new ListFragment_Adapter(data, getActivity(), ALPHABETICAL_COMPARATOR);
+        adapter=new ListFragment_Adapter(getActivity(), ALPHABETICAL_COMPARATOR);
        // new ArrayAdapter<String>(rootView.getContext(),R.layout.support_simple_spinner_dropdown_item,arrayCountry);
         recyclerView.setAdapter(adapter);
 
@@ -139,7 +139,8 @@ public class ListFragment extends Fragment {
             public void onClick(View view) {
               //  Snackbar.make(view, "Etwas hinzugefügt", Snackbar.LENGTH_LONG)
               //          .setAction("Action", null).show();
-                adapter.insert(adapter.getItemCount(), new Data(15,"Neuer Arzt", "Seine Beschreibung", R.drawable.pic1_small));
+                adapter.insert(new Data(15,"AAA", "Seine Beschreibung", R.drawable.pic1_small));
+                
 
             }
         });
@@ -156,7 +157,7 @@ public class ListFragment extends Fragment {
     private List<Data> fill_with_data() {
         List<Data> data = new ArrayList<>();
 
-        data.add(new Data(1,"Dr. Achim", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        data.add(new Data(1,"Dr. Achim2", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
         data.add(new Data(2,"Dr. Müller", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
         data.add(new Data(3,"Dr. Dietrich", "Dr. Dietrich ist ein hervorragender Hausarzt", R.drawable.pic1_small));
         data.add(new Data(4,"Dr. Burkhardt", "Dr. Burkhardt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
