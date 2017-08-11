@@ -79,6 +79,8 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         }
     });
 
+
+    //Constructor
     public ListFragment_Adapter(List<Data> list, Context context, Comparator<Data> mComparator) {
         this.list = list;
         this.context = context;
@@ -99,7 +101,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
     @Override
     public void onBindViewHolder(View_Holder holder, final int position) {
-
+        
         holder.title.setText(list.get(position).title);
         holder.description.setText(list.get(position).description);
         holder.imageView.setImageResource(list.get(position).imageId);
@@ -146,6 +148,8 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         list.add(position, data);
         notifyItemInserted(position);
     }
+
+
     // Remove a RecyclerView item containing the Data object
     public void remove(Data data) {
         int position = list.indexOf(data);
@@ -153,8 +157,14 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         notifyItemRemoved(position);
     }
 
+    public void addSortedlist(Data data){
+        mSortedList.add(data);
+    }
+
     public void replaceAll(List<Data> models) {
         mSortedList.beginBatchedUpdates();
+
+
         for (int i = mSortedList.size() - 1; i >= 0; i--) {
             final Data model = mSortedList.get(i);
             if (!models.contains(model)) {

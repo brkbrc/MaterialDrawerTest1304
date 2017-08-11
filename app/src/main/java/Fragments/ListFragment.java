@@ -73,7 +73,7 @@ public class ListFragment extends Fragment {
             try {
                 super.onLayoutChildren(recycler, state);
             } catch (IndexOutOfBoundsException e) {
-                Log.e("probe", "meet a IOOBE in RecyclerView");
+                Log.e("probe", "Absturz im Recyclerview verhindert");
             }
         }
     }
@@ -122,6 +122,8 @@ public class ListFragment extends Fragment {
          RecyclerView and java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder i
          verursacht.
          Dafür wurde ein WrapContentLinearLayout manager definiert, der Exceptions auffängt
+         Lösung von hier:
+         https://stackoverflow.com/questions/31759171/recyclerview-and-java-lang-indexoutofboundsexception-inconsistency-detected-in
          gez Burak
          */
 

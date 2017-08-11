@@ -220,6 +220,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onQueryTextChange(String query) {
 
+        List<Data> datanew = new ArrayList<>();
+
+        datanew.add(new Data(1,"Dr. A1", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(2,"Dr. B1", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(3,"Dr. C1", "Dr. Dietrich ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(4,"Dr. D1", "Dr. Burkhardt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(5,"Dr. E1", "Dr. Schmidt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(6,"Dr. F1", "Dr. Achmed ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+        datanew.add(new Data(7,"Dr. G1", "Dr. Ratte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
+
+
+
+        /*
+
+
+
+         */
         FragmentManager fm = getSupportFragmentManager();
 
         ListFragment fragment = (ListFragment)fm.findFragmentById(R.id.constraintlayout_for_fragment);
@@ -227,6 +244,8 @@ public class MainActivity extends AppCompatActivity
 
         final List<Data> filteredModelList = filter(fragment.data, query);
         //fragment.data
+
+
         fragment.adapter.replaceAll(filteredModelList);
         //fragment.adapter.notifyDataSetChanged();
         fragment.recyclerView.scrollToPosition(0);
