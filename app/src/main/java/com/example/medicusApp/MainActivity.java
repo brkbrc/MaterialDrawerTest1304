@@ -206,9 +206,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(String data) {
-        //Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,listeArzte, Toast.LENGTH_SHORT).show();
 
-        //Toast.makeText(this, "Callback vom vierten Listener: " + data, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Callback vom vierten Listener: " + listeArzte, Toast.LENGTH_SHORT).show();
     }
 
 //trestr //tzest
@@ -242,8 +242,8 @@ public class MainActivity extends AppCompatActivity
         ListFragment fragment = (ListFragment)fm.findFragmentById(R.id.constraintlayout_for_fragment);
         //List<Data>=
 
-        final List<Data> filteredModelList = filter(fragment.data, query);
-        //fragment.data
+        final List<Data> filteredModelList = filter(fragment.listeArzte, query);
+        //fragment.listeArzte
 
 
         fragment.adapter.replaceAll(filteredModelList);

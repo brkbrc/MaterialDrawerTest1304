@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import Model.Doc;
 import SupportClasses.Data;
 import SupportClasses.ListFragment_Adapter;
 import SupportClasses.QueueSingleton;
@@ -45,7 +46,7 @@ public class ListFragment extends Fragment {
 
     public RecyclerView recyclerView;
     public ListFragment_Adapter adapter;
-    public List<Data> data = fill_with_data();
+    public List<Data> listeArzte = fill_with_data();
     public static ListFragment newInstance(){
         ListFragment fragment = new ListFragment();
         return fragment;
@@ -140,7 +141,8 @@ public class ListFragment extends Fragment {
               //  Snackbar.make(view, "Etwas hinzugefügt", Snackbar.LENGTH_LONG)
               //          .setAction("Action", null).show();
                 adapter.insert(new Data(15,"AAA", "Seine Beschreibung", R.drawable.pic1_small));
-                
+                recyclerView.scrollToPosition(0);
+
 
             }
         });
@@ -171,6 +173,15 @@ public class ListFragment extends Fragment {
         data.add(new Data(12,"Dr. Bitte", "Dr. Bitte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
 
         return data;
+    }
+
+    private List<Doc> fill_with_doc_data(){
+        List<Doc> docs = new ArrayList<>();
+        docs.add(new Doc(1,"Heinz","Hinzel","Augenarzt"));
+        docs.add(new Doc(2,"Karl","Kalle","Augenarzt"));
+        docs.add(new Doc(3,"Max","Mäuschen","Augenarzt"));
+
+        return docs;
     }
 
     private Drawable resize(Drawable image) {

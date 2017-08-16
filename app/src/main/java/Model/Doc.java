@@ -10,12 +10,22 @@ public class Doc {
     private String firstName;
     private String lastName;
     private String speciality;
+    private int imageId;
+
+    public Doc(int lanr, String firstName, String lastName, String speciality, int imageId) {
+        this.lanr = lanr;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.speciality = speciality;
+        this.imageId=imageId;
+    }
 
     public Doc(int lanr, String firstName, String lastName, String speciality) {
         this.lanr = lanr;
         this.firstName = firstName;
         this.lastName = lastName;
         this.speciality = speciality;
+
     }
 
     public Doc() {
@@ -28,6 +38,15 @@ public class Doc {
     public void setLanr(int lanr) {
         this.lanr = lanr;
     }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
 
     public String getFirstName() {
         return firstName;

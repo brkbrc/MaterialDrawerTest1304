@@ -116,7 +116,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
             @Override
             public void onClick(View view){
         //Beispiel Toast:
-        //Toast.makeText(view.getContext(), "You have clicked " + view.getId(), Toast.LENGTH_SHORT).show(); //you can add data to the tag of your cardview in onBind... and retrieve it here with with.getTag().toString()..
+        //Toast.makeText(view.getContext(), "You have clicked " + view.getId(), Toast.LENGTH_SHORT).show(); //you can add listeArzte to the tag of your cardview in onBind... and retrieve it here with with.getTag().toString()..
 
         AppCompatActivity activity = (AppCompatActivity) view.getContext(); //Aktivität herbekommen + Hier würde auch context alleine reichen
 
@@ -125,7 +125,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
         //DoktorFragment wird jetzt aufgerufen wenn man auf eine Cardview klickt
         //Doktorfragment mit Constructor versehen damit die richtigen Daten erhoben werden
-        DoctorFragment myFragment = new DoctorFragment((list.get(position).title));
+        DoctorFragment myFragment = new DoctorFragment((mSortedList.get(position).title));
         activity.getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
                 .replace(R.id.constraintlayout_for_fragment, myFragment)
