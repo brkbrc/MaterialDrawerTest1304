@@ -21,8 +21,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import Model.Doc;
 import Adapter.ListFragment_Adapter;
+import Model.Doc;
+import Services.DocService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -76,7 +81,6 @@ public class ListFragment extends Fragment {
 
         mContext = this.getActivity().getApplicationContext();
 
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
        // recyclerView.hasFixedSize();
         adapter=new ListFragment_Adapter(getActivity(), ALPHABETICAL_COMPARATOR);
@@ -114,9 +118,34 @@ public class ListFragment extends Fragment {
 
     private List<Doc> fill_with_doc_data(){
         List<Doc> docs = new ArrayList<>();
-        docs.add(new Doc(1,"Heinz","Hinzel","Augenarzt",R.drawable.pic1_small));
-        docs.add(new Doc(2,"Karl","Kalle","Augenarzt",R.drawable.pic1_small));
-        docs.add(new Doc(3,"Max","Mäuschen","Augenarzt",R.drawable.pic1_small));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://85.214.40.101:8080/MedicusManagementWeb/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        DocService service = retrofit.create(DocService.class);
+
+        Call<List<Doc>> call = service.loadAllDocs();
+
+        call.enqueue(new Callback<List<Doc>>() {
+            @Override
+            public void onResponse(Call<List<Doc>> call, retrofit2.Response<List<Doc>> response) {
+                if (response.isSuccessful()) {
+                    List<Doc> docList = response.body();
+                    docList.forEach(doc -> System.out.println(doc.getFirstName()));
+                    docList.forEach(doc -> docs.add(new Doc(doc.getLanr(), doc.getFirstName(), doc.getLastName(), "Augenarzt", R.drawable.pic1_small)));
+                } else {
+                    // error response, no access to resource?
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Doc>> call, Throwable t) {
+                // something went completely south (like no internet connection)
+                Log.d("Error", t.getMessage());
+            }
+        });
 
         return docs;
     }
