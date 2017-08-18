@@ -85,7 +85,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
 
-
+//
 
         //Das wird ausgeführt wenn der rote Button gedrückt wird:
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
