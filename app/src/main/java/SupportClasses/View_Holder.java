@@ -13,12 +13,12 @@ import com.example.medicusApp.R;
 
 public class View_Holder extends RecyclerView.ViewHolder {
 
-    CardView cv;
-    TextView title;
-    TextView description;
-    ImageView imageView;
+    public CardView cv;
+    public TextView title;
+    public TextView description;
+    public  ImageView imageView;
 
-    View_Holder(View itemView) {
+   public View_Holder(View itemView) {
         super(itemView);
         cv = (CardView) itemView.findViewById(R.id.cardView);
         title = (TextView) itemView.findViewById(R.id.title);

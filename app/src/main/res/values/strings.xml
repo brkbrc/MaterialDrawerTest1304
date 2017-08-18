@@ -20,6 +20,33 @@
         <item>Antarctica</item>
     </string-array>
 
+    <string-array name="expandable_list_header_title">
+        <item>Vorerkrankungen</item>
+        <item>Medikamentene</item>
+        <item>Behandlungen</item>
+
+    </string-array>
+
+    <string-array name="expandable_list_header_vorerkrankungen">
+        <item>Bluthochdruck</item>
+        <item>Diabetes</item>
+        <item>Tumorerkrankungen</item>
+
+    </string-array>
+
+    <string-array name="expandable_list_header_medikamente">
+        <item>Betablocker</item>
+        <item>Schmerzmittel</item>
+        <item>Insulin</item>
+    </string-array>
+
+    <string-array name="expandable_list_header_beandlungen">
+        <item>ambulant</item>
+        <item>stationär</item>
+        <item>Kur/Reha</item>
+
+    </string-array>
+
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

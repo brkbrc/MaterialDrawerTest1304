@@ -1,10 +1,16 @@
 package Model;
 
+import android.support.annotation.NonNull;
+
+import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
+
+import SupportClasses.Data;
+
 /**
  * Created by janhu on 29.05.2017.
  */
 
-public class Doc {
+public class Doc implements SortedListAdapter.ViewModel{
 
     private int lanr;
     private String firstName;
@@ -70,5 +76,36 @@ public class Doc {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+
+    @Override
+    public <T> boolean isSameModelAs(@NonNull T t) {
+        return false;
+    }
+
+    @Override
+    public <T> boolean isContentTheSameAs(@NonNull T t) {
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Doc model = (Doc) o;
+
+        if (lanr != model.getLanr()) return false;
+        return firstName != null ? firstName.equals(model.getFirstName()) : model.getFirstName() == null;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        int result = (int) (lanr ^ (lanr >>> 32));
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        return result;
     }
 }

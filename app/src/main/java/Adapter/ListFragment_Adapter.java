@@ -1,4 +1,4 @@
-package SupportClasses;
+package Adapter;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import Fragments.DoctorFragment;
+import Model.Doc;
+import SupportClasses.Data;
+import SupportClasses.View_Holder;
+
 import com.example.medicusApp.R;
 
 import java.util.Collections;
@@ -26,10 +30,10 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
     List<Data> list = Collections.emptyList();
     Context context;
-    private final Comparator<Data> mComparator;
+    private final Comparator<Doc> mComparator;
 
 
-    private final SortedList<Data> mSortedList = new SortedList<>(Data.class, new SortedList.Callback<Data>(){
+    private final SortedList<Doc> mSortedList = new SortedList<>(Doc.class, new SortedList.Callback<Doc>(){
 
         @Override
         public void onInserted(int position, int count) {
@@ -55,7 +59,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         Alphabetische Ordnung bei Suche
          */
         @Override
-        public int compare(Data a, Data b) {
+        public int compare(Doc a, Doc b) {
             return mComparator.compare(a,b);
         }
 
@@ -68,20 +72,20 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         Diese Methode vergleicht die Datenobjekte anhand ihres Contents, ggf. mit einer Hashmethode (siehe Data)
          */
         @Override
-        public boolean areContentsTheSame(Data oldItem, Data newItem) {
+        public boolean areContentsTheSame(Doc oldItem, Doc newItem) {
             return oldItem.equals(newItem);
         }
 
         //Diese Methode vergleicht die Datenobjekte anhand ihrer ID)
         @Override
-        public boolean areItemsTheSame(Data item1, Data item2) {
-            return item1.getId() == item2.getId();
+        public boolean areItemsTheSame(Doc item1, Doc item2) {
+            return item1.getLanr() == item2.getLanr();
         }
     });
 
 
     //Constructor
-    public ListFragment_Adapter( Context context, Comparator<Data> mComparator) {
+    public ListFragment_Adapter( Context context, Comparator<Doc> mComparator) {
         this.context = context;
         this.mComparator = mComparator;
     }
@@ -101,11 +105,11 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
     @Override
     public void onBindViewHolder(View_Holder holder, final int position) {
 
-        final Data dataitem = mSortedList.get(position);
+        final Doc docItem = mSortedList.get(position);
 
-        holder.title.setText(mSortedList.get(position).title);
-        holder.description.setText(mSortedList.get(position).description);
-        holder.imageView.setImageResource(mSortedList.get(position).imageId);
+        holder.title.setText(mSortedList.get(position).getFirstName());
+        holder.description.setText(mSortedList.get(position).getSpeciality());
+        holder.imageView.setImageResource(mSortedList.get(position).getImageId());
 
         //holder.title.setText(list.get(position).title);
         //holder.description.setText(list.get(position).description);
@@ -125,7 +129,7 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
 
         //DoktorFragment wird jetzt aufgerufen wenn man auf eine Cardview klickt
         //Doktorfragment mit Constructor versehen damit die richtigen Daten erhoben werden
-        DoctorFragment myFragment = new DoctorFragment((mSortedList.get(position).title));
+        DoctorFragment myFragment = new DoctorFragment((mSortedList.get(position).getFirstName()));
         activity.getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
                 .replace(R.id.constraintlayout_for_fragment, myFragment)
@@ -149,25 +153,25 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
     }
 
     // Insert a new item to the RecyclerView
-    public void insert(Data data) {
+    public void insert(Doc data) {
         mSortedList.add(data);
         //notifyItemInserted(position);
     }
 
 
     // Remove a RecyclerView item containing the Data object
-    public void remove(Data data) {
+    public void remove(Doc data) {
         mSortedList.remove(data);
     }
 
 
 
-    public void replaceAll(List<Data> models) {
+    public void replaceAll(List<Doc> models) {
         mSortedList.beginBatchedUpdates();
 
 
         for (int i = mSortedList.size() - 1; i >= 0; i--) {
-            final Data model = mSortedList.get(i);
+            final Doc model = mSortedList.get(i);
             if (!models.contains(model)) {
                 mSortedList.remove(model);
             }

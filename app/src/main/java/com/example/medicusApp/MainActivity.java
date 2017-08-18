@@ -12,6 +12,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
@@ -22,6 +23,7 @@ import Fragments.CommunicationFragment;
 import Fragments.ListFragment;
 import Fragments.StartFragment;
 import Fragments.ViertesFragment;
+import Model.Doc;
 import SupportClasses.Data;
 
 //Buraks Testcomment
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
 
@@ -242,7 +245,7 @@ public class MainActivity extends AppCompatActivity
         ListFragment fragment = (ListFragment)fm.findFragmentById(R.id.constraintlayout_for_fragment);
         //List<Data>=
 
-        final List<Data> filteredModelList = filter(fragment.listeArzte, query);
+        final List<Doc> filteredModelList = filter(fragment.listeArzte, query);
         //fragment.listeArzte
 
 
@@ -253,12 +256,12 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private static List<Data> filter(List<Data> models, String query) {
+    private static List<Doc> filter(List<Doc> models, String query) {
         final String lowerCaseQuery = query.toLowerCase();
 
-        final List<Data> filteredModelList = new ArrayList<>();
-        for (Data model : models) {
-            final String text = model.getText().toLowerCase();
+        final List<Doc> filteredModelList = new ArrayList<>();
+        for (Doc model : models) {
+            final String text = model.getFirstName().toLowerCase();
             if (text.contains(lowerCaseQuery)) {
                 filteredModelList.add(model);
             }

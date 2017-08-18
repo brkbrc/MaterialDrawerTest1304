@@ -6,8 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 
 import com.example.medicusApp.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -19,6 +24,8 @@ import com.example.medicusApp.R;
  * create an instance of this fragment.
  */
 public class ViertesFragment extends Fragment {
+    ExpandableListView expandableListView;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,6 +58,12 @@ public class ViertesFragment extends Fragment {
             mParam1 = getArguments().getInt(ARG_PARAM1);
 
         }
+        expandableListView= (ExpandableListView) this.getActivity().findViewById(R.id.exp_listview);
+        List<String> Headings = new ArrayList<String>();
+        List<String> L1 = new ArrayList<String>();
+        List<String> L2 = new ArrayList<String>();
+        List<String> L3 = new ArrayList<String>();
+        //HashMap<String,List<String>>;
     }
 
     @Override

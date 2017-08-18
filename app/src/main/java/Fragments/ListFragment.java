@@ -15,24 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.example.medicusApp.R;
-import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 import Model.Doc;
-import SupportClasses.Data;
-import SupportClasses.ListFragment_Adapter;
-import SupportClasses.QueueSingleton;
+import Adapter.ListFragment_Adapter;
 
 
 /**
@@ -46,7 +36,7 @@ public class ListFragment extends Fragment {
 
     public RecyclerView recyclerView;
     public ListFragment_Adapter adapter;
-    public List<Data> listeArzte = fill_with_data();
+    public List<Doc> listeArzte = fill_with_doc_data();
     public static ListFragment newInstance(){
         ListFragment fragment = new ListFragment();
         return fragment;
@@ -56,10 +46,10 @@ public class ListFragment extends Fragment {
 
     }
 
-    private static final Comparator<Data> ALPHABETICAL_COMPARATOR = new Comparator<Data>() {
+    private static final Comparator<Doc> ALPHABETICAL_COMPARATOR = new Comparator<Doc>() {
         @Override
-        public int compare(Data a, Data b) {
-            return a.getText().compareTo(b.getText());
+        public int compare(Doc a, Doc b) {
+            return a.getFirstName().compareTo(b.getFirstName());
         }
     };
 
@@ -86,48 +76,12 @@ public class ListFragment extends Fragment {
 
         mContext = this.getActivity().getApplicationContext();
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                mUrlString,null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // Do something with response JsonArray
-
-                        String result = response.toString();
-                        Log.d("Volley", result);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Do something when get error
-
-                    }
-                }
-        );
-
-        // Add StringRequest to the RequestQueue
-        QueueSingleton.getInstance(mContext).addToRequestQueue(jsonObjectRequest);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
        // recyclerView.hasFixedSize();
         adapter=new ListFragment_Adapter(getActivity(), ALPHABETICAL_COMPARATOR);
        // new ArrayAdapter<String>(rootView.getContext(),R.layout.support_simple_spinner_dropdown_item,arrayCountry);
         recyclerView.setAdapter(adapter);
-
-        //final LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
-        //recyclerView.setLayoutManager(layoutManager);
-        /*
-        der inearLayoutManager layoutManager  wird nicht genutzt, da dieser Abstürze vvom Typ:
-         RecyclerView and java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder i
-         verursacht.
-         Dafür wurde ein WrapContentLinearLayout manager definiert, der Exceptions auffängt
-         Lösung von hier:
-         https://stackoverflow.com/questions/31759171/recyclerview-and-java-lang-indexoutofboundsexception-inconsistency-detected-in
-         gez Burak
-         */
-
         recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
 
@@ -140,7 +94,7 @@ public class ListFragment extends Fragment {
             public void onClick(View view) {
               //  Snackbar.make(view, "Etwas hinzugefügt", Snackbar.LENGTH_LONG)
               //          .setAction("Action", null).show();
-                adapter.insert(new Data(15,"AAA", "Seine Beschreibung", R.drawable.pic1_small));
+               // adapter.insert(new Doc(15,"AAA", "Seine Beschreibung", R.drawable.pic1_small));
                 recyclerView.scrollToPosition(0);
 
 
@@ -156,30 +110,13 @@ public class ListFragment extends Fragment {
 
 
 
-    private List<Data> fill_with_data() {
-        List<Data> data = new ArrayList<>();
 
-        data.add(new Data(1,"Dr. Achim2", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(2,"Dr. Müller", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(3,"Dr. Dietrich", "Dr. Dietrich ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(4,"Dr. Burkhardt", "Dr. Burkhardt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(5,"Dr. Schmidt", "Dr. Schmidt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(6,"Dr. Achmed", "Dr. Achmed ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(7,"Dr. Ratte", "Dr. Ratte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(8,"Dr. Schmerz", "Dr. Schmerz ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(9,"Dr. Anabolika", "Dr. Anabolika ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(10,"Dr. Fake", "Dr. Fake ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(11,"Dr. Nein", "Dr. Nein ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        data.add(new Data(12,"Dr. Bitte", "Dr. Bitte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-
-        return data;
-    }
 
     private List<Doc> fill_with_doc_data(){
         List<Doc> docs = new ArrayList<>();
-        docs.add(new Doc(1,"Heinz","Hinzel","Augenarzt"));
-        docs.add(new Doc(2,"Karl","Kalle","Augenarzt"));
-        docs.add(new Doc(3,"Max","Mäuschen","Augenarzt"));
+        docs.add(new Doc(1,"Heinz","Hinzel","Augenarzt",R.drawable.pic1_small));
+        docs.add(new Doc(2,"Karl","Kalle","Augenarzt",R.drawable.pic1_small));
+        docs.add(new Doc(3,"Max","Mäuschen","Augenarzt",R.drawable.pic1_small));
 
         return docs;
     }
