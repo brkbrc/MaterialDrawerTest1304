@@ -63,12 +63,14 @@ public class MainActivity extends AppCompatActivity
 
         StartFragment startFragment = new StartFragment();
 
+        SearchFragment searchFragment = new SearchFragment();
+
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(
                 R.id.constraintlayout_for_fragment,
-                startFragment,
-                startFragment.getTag()
+                searchFragment,
+                searchFragment.getTag()
         ).commit();
 
 
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        StartFragment startFragment = new StartFragment();
+        SearchFragment searchFragment = new SearchFragment();
         FragmentManager manager = this.getSupportFragmentManager();
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
