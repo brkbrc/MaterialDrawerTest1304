@@ -57,7 +57,7 @@
                         android:src="@drawable/pic1" />
 
                     <TextView
-                        android:id="@+id/profile_doctor_name"
+                        android:id="@+id/profile_doctor_name_anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -71,12 +71,15 @@
                         android:id="@+id/profile_doctor_speciality"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/profile_doctor_name"
-                        android:layout_marginStart="15dp"
                         android:textSize="20dp"
-                        android:layout_toEndOf="@+id/profile_doctor_image"
                         android:text="Willkommen beim E-Anamnesebogen der Praxis"
-                        android:textAppearance="@style/TextAppearance.AppCompat" />
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:layout_below="@id/profile_doctor_name_anamnese"
+                        android:layout_marginTop="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="6dp"
+                        android:layout_alignStart="@+id/profile_doctor_name_anamnese" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
