@@ -33,8 +33,6 @@ public class SearchFragment extends Fragment {
     EditText mEtSpeciality;
     @BindView(R.id.etCity)
     EditText mEtCity;
-    @BindView(R.id.etLanguage)
-    EditText mEtLanguage;
     @BindView(R.id.btSearch)
     Button mBtSearch;
     Unbinder unbinder;

@@ -8,9 +8,10 @@
     android:scrollbars="vertical"
     android:id="@+id/doctor_profile">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <android.support.v7.widget.CardView
             android:id="@+id/profile_doctor"
@@ -27,6 +28,11 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 >
+
+                <RelativeLayout
+                    android:id="@+id/rl_docData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/profile_doctor_image"
@@ -109,11 +115,13 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
+                </RelativeLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/profile_doctor_image">
+                    android:layout_below="@+id/rl_docData">
 
                     <Button
                         android:id="@+id/profile_doctor_checkin_button"
@@ -341,6 +349,6 @@
 
         </android.support.v7.widget.CardView>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>
