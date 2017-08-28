@@ -108,12 +108,12 @@ public class ListFragment_Adapter extends RecyclerView.Adapter<View_Holder> {
         final Doc docItem = mSortedList.get(position);
 
         holder.title.setText(mSortedList.get(position).getFirstName());
+
+
         holder.description.setText(mSortedList.get(position).getSpeciality());
         holder.imageView.setImageResource(mSortedList.get(position).getImageId());
 
-        //holder.title.setText(list.get(position).title);
-        //holder.description.setText(list.get(position).description);
-        //holder.imageView.setImageResource(list.get(position).imageId);
+
 
         holder.cv.setOnClickListener(new View.OnClickListener(){
 
