@@ -116,7 +116,7 @@
                     android:layout_below="@+id/profile_doctor_image">
 
                     <Button
-                        android:id="@+id/profile_doctor_checkin"
+                        android:id="@+id/profile_doctor_checkin_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary"

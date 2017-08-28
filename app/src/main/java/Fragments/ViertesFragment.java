@@ -14,6 +14,7 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.medicusApp.R;
 
@@ -44,19 +45,20 @@ public class ViertesFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private int mParam1;
-    private String mParam2;
+    private String firstname;
+    private String doktorname;
 
     private OnFragmentInteractionListener mListener;
 
-    public ViertesFragment() {
-
-
+    public ViertesFragment(String name, String name2) {
+        firstname = name2;
+        doktorname=name;
         // Required empty public constructor
     }
 
 
     public static ViertesFragment newInstance(int param1) {
-        ViertesFragment fragment = new ViertesFragment();
+        ViertesFragment fragment = new ViertesFragment("name", "name2");
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
 
@@ -153,6 +155,10 @@ public class ViertesFragment extends Fragment {
         anamText.setAdapter(anamTextAd);
         anamText.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         seekBar2 = (SeekBar) view.findViewById(R.id.seekBar2);
+        TextView docname;
+
+        docname = (TextView) view.findViewById(R.id.profile_doctor_name_anamnese);
+        docname.setText("Dr. med " + firstname+" " +doktorname);
 
          checkBoxKopfschmerz = (CheckBox) view.findViewById(R.id.expandable_list_child_item_checkbox_kopfschmerzen);
         checkBoxKopfschmerz.setOnClickListener(new View.OnClickListener() {
