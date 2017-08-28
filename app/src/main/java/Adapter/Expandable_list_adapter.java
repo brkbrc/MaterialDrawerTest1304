@@ -1,13 +1,16 @@
 package Adapter;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.view.ViewGroup.LayoutParams;
 
 import com.example.medicusApp.R;
 
@@ -24,7 +27,7 @@ public class Expandable_list_adapter extends BaseExpandableListAdapter{
     private Context ctx;
 
 
-    Expandable_list_adapter(Context ctx, List<String> header_titles, HashMap<String,List<String>>  child_titles){
+    public Expandable_list_adapter(Context ctx, List<String> header_titles, HashMap<String, List<String>> child_titles){
         this.ctx=ctx;
         this.child_titles=child_titles;
         this.header_titles=header_titles;
@@ -66,35 +69,50 @@ public class Expandable_list_adapter extends BaseExpandableListAdapter{
     }
 
     @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-        String title=(String)this.getGroup(i);
-        if(view==null)
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        String title=(String)this.getGroup(groupPosition);
+        if(convertView==null)
         {
+
             LayoutInflater layoutInflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.parent_expandable_list_layout,null);
+            convertView = layoutInflater.inflate(R.layout.parent_expandable_list_layout,parent,false);
+
+
+
         }
-        TextView textView = (TextView) view.findViewById(R.id.expandable_list_heading_item);
-        textView.setTypeface(null, Typeface.BOLD);
+        TextView textView = (TextView) convertView.findViewById(R.id.expandable_list_heading_item);
+       // textView.setTypeface(null, Typeface.BOLD);
         textView.setText(title);
 
 
-        return view;
+        if (isExpanded)
+        {
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.expandable_arrowimage);
+            imageView.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+        } else {
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.expandable_arrowimage);
+            imageView.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        }
+
+
+        return convertView;
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        String title = (String) this.getChild(i,i1);
-        if(view==null)
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        String title = (String) this.getChild(groupPosition,childPosition);
+        if(convertView==null)
         {
             LayoutInflater layoutInflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.child_expandable_list_layout,null);
+            convertView = layoutInflater.inflate(R.layout.child_expandable_list_layout,parent,false);
         }
-        TextView textView = (TextView) view.findViewById(R.id.expandable_list_child_item);
+        CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.expandable_list_child_item_checkbox);
+        //SeekBar myseekbar = (SeekBar) convertView.findViewById(R.id.seekBar_luminosite);
 
-        textView.setText(title);
+        checkBox.setText(title);
 
 
-        return view;
+        return convertView;
     }
 
     @Override

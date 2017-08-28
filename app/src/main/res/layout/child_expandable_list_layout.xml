@@ -2,17 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#000000">
+    android:background="#ffffff">
 
-    <TextView
-        android:id="@+id/expandable_list_child_item"
+
+
+    <CheckBox
+        android:id="@+id/expandable_list_child_item_checkbox"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello World"
-        android:textColor="#FFFFFF"
+        android:text="CheckBox"
+        android:textColor="#ff0000"
         android:textSize="20dp"
         android:gravity="center_vertical"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:button="@null"
+        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
         />
+
+
+
 
 </LinearLayout>
