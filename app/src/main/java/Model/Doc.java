@@ -4,8 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
-import SupportClasses.Data;
-
 /**
  * Created by janhu on 29.05.2017.
  */
