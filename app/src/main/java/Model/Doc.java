@@ -4,53 +4,73 @@ import android.support.annotation.NonNull;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
+import java.util.List;
+
 /**
  * Created by janhu on 29.05.2017.
  */
 
 public class Doc implements SortedListAdapter.ViewModel{
 
-    private int lanr;
+    private int id;
+    private char gender;
+    private String title;
     private String firstName;
     private String lastName;
-    private String speciality;
-    private int imageId;
+    private Address address;
+    private Speciality speciality;
+    private List<Language> languageList;
+    private String imageUrl;
 
-    public Doc(int lanr, String firstName, String lastName, String speciality, int imageId) {
-        this.lanr = lanr;
+    public Doc(int id, char gender, String title, String firstName, String lastName, Address address, Speciality speciality, List<Language> languageList, String imageUrl) {
+        this.id = id;
+        this.gender = gender;
+        this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.address = address;
         this.speciality = speciality;
-        this.imageId=imageId;
+        this.languageList = languageList;
+        this.imageUrl = imageUrl;
     }
 
-    public Doc(int lanr, String firstName, String lastName, String speciality) {
-        this.lanr = lanr;
+    public Doc(int id, char gender, String title, String firstName, String lastName, Address address, Speciality speciality, List<Language> languageList) {
+        this.id = id;
+        this.gender = gender;
+        this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.address = address;
         this.speciality = speciality;
-
+        this.languageList = languageList;
     }
 
     public Doc() {
     }
 
-    public int getLanr() {
-        return lanr;
+    public int getId() {
+        return id;
     }
 
-    public void setLanr(int lanr) {
-        this.lanr = lanr;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getImageId() {
-        return imageId;
+    public char getGender() {
+        return gender;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setGender(char gender) {
+        this.gender = gender;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -68,14 +88,41 @@ public class Doc implements SortedListAdapter.ViewModel{
         this.lastName = lastName;
     }
 
-    public String getSpeciality() {
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getStreet() {
+        return getAddress().getStreet();
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Speciality getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(String speciality) {
+    public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
 
+    public List<Language> getLanguageList() {
+        return languageList;
+    }
+
+    public void setLanguageList(List<Language> languageList) {
+        this.languageList = languageList;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     @Override
     public <T> boolean isSameModelAs(@NonNull T t) {
@@ -94,7 +141,7 @@ public class Doc implements SortedListAdapter.ViewModel{
 
         Doc model = (Doc) o;
 
-        if (lanr != model.getLanr()) return false;
+        if (id != model.getId()) return false;
         return firstName != null ? firstName.equals(model.getFirstName()) : model.getFirstName() == null;
     }
 
@@ -102,7 +149,7 @@ public class Doc implements SortedListAdapter.ViewModel{
 
     @Override
     public int hashCode() {
-        int result = (int) (lanr ^ (lanr >>> 32));
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         return result;
     }

@@ -50,4 +50,7 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="app_label">Medicus</string>
+    <string name="search_hint_docName">Name des Arztes</string>
 </resources>

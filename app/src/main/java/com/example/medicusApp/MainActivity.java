@@ -12,7 +12,6 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ExpandableListView;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
@@ -21,10 +20,10 @@ import java.util.List;
 
 import Fragments.CommunicationFragment;
 import Fragments.ListFragment;
+import Fragments.SearchFragment;
 import Fragments.StartFragment;
 import Fragments.ViertesFragment;
 import Model.Doc;
-import SupportClasses.Data;
 
 //Buraks Testcomment
 //Jans Testkommentar2
@@ -138,16 +137,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_list) {
+        if (id == R.id.nav_search) {
             //Toast.makeText(this, "Liste geöffnet", Toast.LENGTH_SHORT).show();
-            ListFragment listFragment = new ListFragment();
+            SearchFragment searchFragment = new SearchFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
                     .replace(
                     R.id.constraintlayout_for_fragment,
-                    listFragment,
-                    listFragment.getTag())
+                    searchFragment,
+                    searchFragment.getTag())
                     .addToBackStack(null)
                     .commit();
 
@@ -223,23 +222,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onQueryTextChange(String query) {
 
-        List<Data> datanew = new ArrayList<>();
-
-        datanew.add(new Data(1,"Dr. A1", "Dr. Achim ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(2,"Dr. B1", "Dr. Müller ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(3,"Dr. C1", "Dr. Dietrich ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(4,"Dr. D1", "Dr. Burkhardt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(5,"Dr. E1", "Dr. Schmidt ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(6,"Dr. F1", "Dr. Achmed ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-        datanew.add(new Data(7,"Dr. G1", "Dr. Ratte ist ein hervorragender Hausarzt", R.drawable.pic1_small));
-
-
-
-        /*
-
-
-
-         */
         FragmentManager fm = getSupportFragmentManager();
 
         ListFragment fragment = (ListFragment)fm.findFragmentById(R.id.constraintlayout_for_fragment);
@@ -249,7 +231,7 @@ public class MainActivity extends AppCompatActivity
         //fragment.listeArzte
 
 
-        fragment.adapter.replaceAll(filteredModelList);
+//        fragment.adapter.replaceAll(filteredModelList);
         //fragment.adapter.notifyDataSetChanged();
         fragment.recyclerView.scrollToPosition(0);
 

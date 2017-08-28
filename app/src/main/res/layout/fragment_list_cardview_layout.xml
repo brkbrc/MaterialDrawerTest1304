@@ -7,7 +7,7 @@
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cv_doclist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -22,29 +22,52 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/cv_doclist_iv_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                app:srcCompat="@drawable/placeholder_man"/>
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/cv_doclist_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/imageView"
-                android:text="Title"
-                android:textSize="30sp" />
+                android:layout_toRightOf="@+id/cv_doclist_iv_doc"
+                android:text="Dr. med. Bernd Patrick Rohe"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/cv_doclist_tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:layout_toRightOf="@+id/imageView"
-                android:text="Description" />
+                android:layout_below="@id/cv_doclist_tv_name"
+                android:layout_toRightOf="@+id/cv_doclist_iv_doc"
+                android:text="Hufelandstr. 68\n45147 Essen"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/cv_doclist_tv_speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_doclist_tv_address"
+                android:layout_toRightOf="@+id/cv_doclist_iv_doc"
+                android:layout_marginTop="16dp"
+                android:textSize="12sp"
+                android:text="Orthopäde" />
+
+            <TextView
+                android:id="@+id/cv_doclist_tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_doclist_tv_address"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:textSize="12sp"
+                android:text="1,7 km" />
 
         </RelativeLayout>
 

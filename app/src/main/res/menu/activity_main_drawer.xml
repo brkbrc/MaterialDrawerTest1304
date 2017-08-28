@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Start"/>
         <item
-            android:id="@+id/nav_list"
+            android:id="@+id/nav_search"
             android:icon="@drawable/ic_menu_list"
-            android:title="Liste"/>
+            android:title="Suche"/>
         <item
             android:id="@+id/nav_communication"
             android:icon="@drawable/ic_menu_gallery"

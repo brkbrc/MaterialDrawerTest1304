@@ -18,21 +18,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.*;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-
-
-
-    @Bind(R.id.input_email) EditText _emailText;
-    @Bind(R.id.input_password) EditText _passwordText;
-    @Bind(R.id.btn_login) Button _loginButton;
-    @Bind(R.id.link_signup) TextView _signupLink;
-    @Bind(R.id.login_layout) ViewGroup _loginLayout;
-    @Bind(R.id.home_logo) ImageView _image;
+    @BindView(R.id.input_email) EditText _emailText;
+    @BindView(R.id.input_password) EditText _passwordText;
+    @BindView(R.id.btn_login) Button _loginButton;
+    @BindView(R.id.link_signup) TextView _signupLink;
+    @BindView(R.id.login_layout) ViewGroup _loginLayout;
+    @BindView(R.id.home_logo) ImageView _image;
 
     private int xDelta;
     private int yDelta;
